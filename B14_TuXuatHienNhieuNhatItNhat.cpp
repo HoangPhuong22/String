@@ -1,5 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
+bool cmp(pair<string,int>a , pair<string,int>b) 
+{
+    if(a.second != b.second) return a.second < b.second;
+    return a.first < b.first;
+}
 int main()
 {
     string s ; getline(cin , s);
@@ -15,11 +20,7 @@ int main()
     {
         v.push_back(x);
     }
-    sort(v.begin() , v.end() , [](pair<string,int>a , pair<string,int>b)->bool
-    {
-        if(a.second != b.second) return a.second < b.second;
-        return a.first < b.first;
-    });
+    sort(v.begin() , v.end(),cmp);
     cout << v[v.size() - 1].first << " " << v[v.size() - 1].second << endl;
     int res = v[0].second;
     string kq = v[0].first;
