@@ -6,6 +6,10 @@ bool check(string s)
     reverse(t.begin() , t.end());
     return t == s;
 }
+bool cmp(string a , string b)
+{
+    return a.length() < b.length();
+}
 int main()
 {
     string s ; getline(cin , s);
@@ -22,10 +26,7 @@ int main()
             se.insert(x);
         }
     }
-    stable_sort(v.begin() , v.end() , [] (string a , string b) ->bool
-    {
-        return a.size() < b.size();    
-    });
+    stable_sort(v.begin() , v.end() ,cmp);
     for(string x : v)
     {
         cout << x << " ";
