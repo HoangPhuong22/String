@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+bool cmp(string a , string b)
+{
+    if(a.size() != b.size()) return a.size() < b.size();
+    return a < b;
+}
 int main()
 {
     string s ; cin >>s;
@@ -24,10 +28,6 @@ int main()
             tmp = "";
         }
     }
-    sort(v.begin() , v.end() , [](string a , string b)->bool
-    {
-        if(a.size() != b.size()) return a.size() < b.size();
-        return a < b;
-    });
+    sort(v.begin() , v.end() ,cmp);
     cout << v[v.size() - 1];
 }
